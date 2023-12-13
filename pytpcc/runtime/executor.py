@@ -91,19 +91,22 @@ class Executor:
         x = rand.number(1, 100)
         params = None
         txn = None
-        if x <= 4: ## 4%
-            txn, params = (constants.TransactionTypes.STOCK_LEVEL, self.generateStockLevelParams())
-        elif x <= 4 + 4: ## 4%
-            txn, params = (constants.TransactionTypes.DELIVERY, self.generateDeliveryParams())
-        elif x <= 4 + 4 + 4: ## 4%
-            txn, params = (constants.TransactionTypes.ORDER_STATUS, self.generateOrderStatusParams())
-        elif x <= 43 + 4 + 4 + 4: ## 43%
-            txn, params = (constants.TransactionTypes.PAYMENT, self.generatePaymentParams())
-        else: ## 45%
-            assert x > 100 - 45
-            txn, params = (constants.TransactionTypes.NEW_ORDER, self.generateNewOrderParams())
-        
+        txn, params = (constants.TransactionTypes.STOCK_LEVEL, self.generateStockLevelParams())
         return (txn, params)
+
+        # if x <= 4: ## 4%
+        #     txn, params = (constants.TransactionTypes.STOCK_LEVEL, self.generateStockLevelParams())
+        # elif x <= 4 + 4: ## 4%
+        #     txn, params = (constants.TransactionTypes.DELIVERY, self.generateDeliveryParams())
+        # elif x <= 4 + 4 + 4: ## 4%
+        #     txn, params = (constants.TransactionTypes.ORDER_STATUS, self.generateOrderStatusParams())
+        # elif x <= 43 + 4 + 4 + 4: ## 43%
+        #     txn, params = (constants.TransactionTypes.PAYMENT, self.generatePaymentParams())
+        # else: ## 45%
+        #     assert x > 100 - 45
+        #     txn, params = (constants.TransactionTypes.NEW_ORDER, self.generateNewOrderParams())
+        # 
+        # return (txn, params)
     ## DEF
 
     ## ----------------------------------------------
